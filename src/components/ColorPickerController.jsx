@@ -7,7 +7,7 @@ const ColorPickerController = ({ hideController = false ,selectedColor,height}) 
   
   return (
     <div
-      className={`  min-h-[670px]   cursor-pointer`}
+      className={`flex items-center justify-center cursor-pointer`}
     >
       <ColorPicker
       className={" rounded-lg"}

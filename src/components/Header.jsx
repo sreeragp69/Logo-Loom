@@ -4,7 +4,7 @@ import { Download, Menu } from "lucide-react";
 
 const Header = ({ handleClick, DownloadIcon }) => {
   return (
-    <div className="px-2  py-2 shadow-sm borde flex items-center justify-between">
+    <header className="px-2  py-2 shadow-sm borde flex items-center justify-between">
       <div className="flex items-center ">
         <Menu
           onClick={handleClick}
@@ -19,7 +19,7 @@ const Header = ({ handleClick, DownloadIcon }) => {
         <Download className="h-4 w-4" />
         Download
       </Button>
-    </div>
+    </header>
   );
 };
 

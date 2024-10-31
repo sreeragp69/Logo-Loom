@@ -53,7 +53,7 @@ const LogoPreview = ({ downloadIcon }) => {
   return (
     <div className="flex items-center justify-center  h-scree ">
       <div
-        className="h-[400px] w-[400px] bg-gray-200 outline-dotted outline-gray-300"
+        className="h-[300px] w-[300px]    lg:w-[400px] lg:h-[400px] bg-gray-200 outline-dotted outline-gray-300"
         style={{
           padding: storageValue?.bgPadding,
         }}

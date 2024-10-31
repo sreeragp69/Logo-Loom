@@ -5,13 +5,16 @@ import Header from "./components/Header";
 import IconController from "./components/IconController";
 import SideNav from "./components/SideNav";
 import LogoPreview from "./components/LogoPreview";
-import { UpdateStorageContext, UpdateStorageProvider } from "./context/UpdateStorageContext";
+import {
+  UpdateStorageContext,
+  UpdateStorageProvider,
+} from "./context/UpdateStorageContext";
+import Footer from "./components/Footer";
 
 function App() {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [isSidebarActive, setIsSidebarActive] = useState(false);
-  const [downloadIcon, setDownloadIcon] = useState(null)
- 
+  const [downloadIcon, setDownloadIcon] = useState(null);
 
   const handleClick = () => {
     setIsSidebarActive(!isSidebarActive);
@@ -20,23 +23,30 @@ function App() {
   return (
     <UpdateStorageProvider>
       <>
-        <Header handleClick={handleClick}   DownloadIcon={setDownloadIcon}/>
-        <div className={`w-64 fixed ${isSidebarActive ? "z-10" : "z-0"}`}>
-          <SideNav
-            setIsSidebarActive={setIsSidebarActive}
-            isSidebarActive={isSidebarActive}
-            selectedIndex={(value) => setSelectedIndex(value)}
-          />
-        </div>
-        <div className="md:ml-64 grid grid-cols-1 md:grid-cols-6  fixed">
-          <div className="md:col-span-2 border h-screen shadow-sm p-5 overflow-auto">
-            {selectedIndex == 0 ? <IconController /> : <BackgroundController />}
+        <Header handleClick={handleClick} DownloadIcon={setDownloadIcon} />
+        <div className="flex  justify-center w-screen md:justify-between">
+          <div className="relative" >
+            <SideNav
+              setIsSidebarActive={setIsSidebarActive}
+              isSidebarActive={isSidebarActive}
+              selectedIndex={(value) => setSelectedIndex(value)}
+            />
           </div>
-          <div className="col-span-3 ">
-            <LogoPreview  downloadIcon={downloadIcon}/>
+          <div className=" flex w-full shadow-sm md:w-auto md:flex-1 flex-col justify-center md:items-start md:flex-row  md:justify-between ">
+            <div className="  order-2 md:order-1   border-r p-4 w-[97%] md:w-1/2 md:p-5 md:overflow-auto">
+              {selectedIndex == 0 ? (
+                <IconController />
+              ) : (
+                <BackgroundController />
+              )}
+            </div>
+
+            <div className="flex   justify-center my-5 md:mt-1 md:w-1/2 order-1 md:order-2">
+              <LogoPreview downloadIcon={downloadIcon} />
+            </div>
           </div>
-          <div className="bg-green-50">Ads Banner</div>
         </div>
+      <Footer/>
       </>
     </UpdateStorageProvider>
   );

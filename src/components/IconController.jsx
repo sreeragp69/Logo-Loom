@@ -75,7 +75,7 @@ const IconController = () => {
           <ColorPickerController
             selectedColor={(color) => setColor(color)}
             hideController={true}
-            height={"1000"}
+           
           />
         </div>
       </div>
